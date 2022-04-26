@@ -1,8 +1,8 @@
 <?php
-//require './autoload.php';
-//require_once 'Db.php';
 
-class RegUser {
+require_once 'Db.php';
+
+class RegUser extends Db{
     protected $email;
     protected $pass;
     protected $rpass;
@@ -17,8 +17,9 @@ class RegUser {
 
     public function reg(){
         if($this->email() && $this->pass()){
-            require_once 'Db.php';
-            
+            //require_once 'Db.php';
+            $pdo = $this->db();
+
             $passh = password_hash($this->pass, PASSWORD_DEFAULT);
 
             $stmt = $pdo->prepare("INSERT INTO users (email, uname, pass) VALUES (?, ?, ?)");
@@ -28,6 +29,7 @@ class RegUser {
             header("location:./login.php");
 
         }else {
+            $_SESSION['invalid']='invalid';
             header("location:./register.php");
         }
         
