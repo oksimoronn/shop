@@ -1,61 +1,19 @@
 <?php
+session_start();
 
 require_once 'Db.php';
 
 class Login extends Db{
 
-    protected $email;
-    protected $pass;
+    public $email;
+    public $pass;
 
     function __construct($email, $pass){
         $this->email = $email;
         $this->pass = $pass;
-
-        
-    }
-
-    public function login(){
-
-        if($this->mail() && $this->pass()){
-
-            $this-> query();
-            $name = $result['uname'];
-
-            $_SESSION['user']=$name;    
-            header("Location: ./index.php");
-            
-        }else{
-            header("Location: ./login.php");
-        }
     }
     
-
-    protected function mail(){
-        $this-> query();
-
-        $name = $result['email'];
-        
-        if($this->email == $name){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    protected function pass(){
-        $this-> query();
-
-        $pash = $result['pass'];
-        $rp = password_verify($this->pass, $pash);
-
-        if($rp == true){
-            return true;
-        }else{
-            return false;
-        } 
-    }
-
-    protected function query(){
+    public function query(){
         $pdo = $this->db();
 
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? ");
@@ -65,6 +23,46 @@ class Login extends Db{
         $stmt = null;
 
         return $result;   
+    }
+
+    public function mail(){
+        $res = $this->query();
+
+        $mail = $res['email'];
+        
+        if($this->email == $mail){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function pass(){
+        $res = $this->query();
+
+        $pash = $res['pass'];
+        $rp = password_verify($this->pass, $pash);
+        return $rp;
+        /*if($rp == true){
+            return true;
+        }else{
+            return false;
+        } */
+    }
+
+    public function loginuser(){
+
+        if(/*$this->mail() &&*/ $this->pass()){
+
+            $res = $this->query();
+            $name = $res['uname'];
+
+            $_SESSION['user'] = $name;    
+            header("Location: ./index.php");
+
+        }else{
+           header("Location: ./login.php");
+        }
     }
 
 

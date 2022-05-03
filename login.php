@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require './autoload.php';
 
 $view = new Partials();
@@ -45,14 +47,12 @@ $view->head();
 if(isset($_POST['submit'])){
 
   $email = $_POST['email'];
-  $pass = $_POST['pass'];
+  $pas = $_POST['pass'];
 
+  $login = new Login($email, $pas);
 
-  $login = new Login($email, $pass);
-
-  $login->login();
+  $login->loginuser();
 
 }
-
 
 ?>
