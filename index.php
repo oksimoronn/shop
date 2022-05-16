@@ -4,7 +4,14 @@ require './autoload.php';
 $view = new Partials();
 
 $view->head();
-$view->nav();
+
+if(!isset($_SESSION['user'])){
+  $view->nav();
+}else {
+  $view->navLogedIn();
+}
+
+
 ?>
 
   <div class="album py-5 bg-light">
