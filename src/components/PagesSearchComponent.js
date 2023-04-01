@@ -47,15 +47,16 @@ export default function PagesSearchComponent() {
           NEWSLETTER
         </NavLink>
       </div>
-      {/* <div className="headerSearch">*/}
+
       <form className="headerSearchForm">
         <input type="text" placeholder="Upišite traženi proizvod ..."></input>
       </form>
-      {/*</div>*/}
+
       <div className="shopingCart">
         <FontAwesomeIcon icon={faCartShopping} />
         <div className="shopingCartAmount">0</div>
       </div>
+      <hr></hr>
     </div>
   );
 }

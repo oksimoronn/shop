@@ -46,11 +46,20 @@
 }
 .header {
   width: 100%;
-  height: 10vh;
-  margin-top: 3rem;
+  height: 5vh;
+  padding: 0.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+}
+.header hr {
+  width: 100%;
+  height: 1px;
+
+  background-color: #333;
 }
 .headerLinks a {
   padding-left: 1.2rem;
@@ -93,4 +102,26 @@
   color: white;
   top: 0px;
   right: 0px;
+}
+.contentComponent {
+  width: 100%;
+  padding: 1.8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+}
+.contentComponent ul li {
+  display: inline;
+  list-style-type: none;
+}
+.contentComponent ul li .navLink {
+  padding-left: 1.3rem;
+  text-decoration: none;
+  color: rgb(56, 53, 53);
 }
