@@ -125,3 +125,19 @@
   text-decoration: none;
   color: rgb(56, 53, 53);
 }
+.gamingContent {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+.gamingContent .gamingConsoles ul li {
+  display: flex;
+  flex-direction: column;
+}
+.gamingContent .gamingTitles {
+  padding-left: 2rem;
+}
+.gamingContent .gamingTitles ul li {
+  display: flex;
+  flex-direction: column;
+}

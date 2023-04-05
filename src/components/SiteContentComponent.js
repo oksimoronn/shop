@@ -16,13 +16,12 @@ export default function SiteContentComponent() {
     <div className="contentComponent">
       <ul>
         {/* MORAŠ DODATI RUTEE ZA OVO SVE I POPRAVITI  to=""*/}
-        <li onMouseOver={mouseHover} onMouseOut={mouseOut}>
+        <li onMouseOver={mouseHover}>
           <NavLink className="navLink" to="/about">
             Gaming
           </NavLink>
-          {isHover && <GamingNavComponent />}
         </li>
-        <li>
+        <li onMouseOver={mouseHover}>
           <NavLink className="navLink" to="/about">
             Informatika
           </NavLink>
@@ -78,6 +77,11 @@ export default function SiteContentComponent() {
           </NavLink>
         </li>
       </ul>
+      <hr></hr>
+
+      {isHover && (
+        <GamingNavComponent mouseOut={mouseOut} mouseHover={mouseHover} />
+      )}
     </div>
   );
 }
