@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-//onMouseOut={mouseOut}
-export default function GamingNavComponent({ mouseHover, mouseOut }) {
+
+export default function InformatikaNavComponent({ mouseHover, mouseOut }) {
   return (
     <>
       <hr></hr>
@@ -11,62 +11,52 @@ export default function GamingNavComponent({ mouseHover, mouseOut }) {
         onMouseLeave={mouseOut}
       >
         <div className="gamingConsoles">
-          <h4>Igrače konzole & VR</h4>
+          <h4>Laptop računala</h4>
           <ul>
             <li>
               <NavLink className="navLink" to="/about">
-                PlayStation 4
+                Standardni laptopi
               </NavLink>
             </li>
             <li>
               <NavLink className="navLink" to="/about">
-                PlayStation 5
+                Gaming laptopi
               </NavLink>
             </li>
             <li>
               <NavLink className="navLink" to="/about">
-                VR
+                Ultramobilni laptopi
               </NavLink>
             </li>
             <li>
               <NavLink className="navLink" to="/about">
-                Nitendo
+                Poslovni laptopi
               </NavLink>
             </li>
             <li>
               <NavLink className="navLink" to="/about">
-                Xbox
+                Hibridni laptopi
               </NavLink>
             </li>
           </ul>
         </div>
 
         <div className="gamingTitles">
-          <h4>Igre za sve platforme</h4>
+          <h4>Laptop pribor</h4>
           <ul>
             <li>
               <NavLink className="navLink" to="/about">
-                Igre za PS 4
+                Torbe za laptope
               </NavLink>
             </li>
             <li>
               <NavLink className="navLink" to="/about">
-                Igre za PS 4
+                Punjači i coleri
               </NavLink>
             </li>
             <li>
               <NavLink className="navLink" to="/about">
-                Igre za PS VR
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="navLink" to="/about">
-                Igre za PS Nitendo
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="navLink" to="/about">
-                Igre za PS Xbox
+                Ostali laptop pribori
               </NavLink>
             </li>
           </ul>
