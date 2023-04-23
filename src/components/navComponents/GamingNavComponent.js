@@ -1,10 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-//onMouseOut={mouseOut}
+
 export default function GamingNavComponent({ mouseHover, mouseOut }) {
   return (
     <>
-      <hr></hr>
       <div
         className="gamingContent"
         onMouseOver={mouseHover}
