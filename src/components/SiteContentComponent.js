@@ -1,70 +1,89 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import GamingNavComponent from "./navComponents/GamingNavComponent";
-import InformatikaNavComponent from "./navComponents/InformatikaNavComponent";
-//import { key } from "localforage";
+import SubNavComponent from "./navComponents/SubNavComponent";
 
 export default function SiteContentComponent() {
   const initialvalues = [
-    { el: "gaingm", state: false },
-    { el: "infom", state: false },
-    { el: "mob", state: false },
-    { el: "tv", state: false },
-    { el: "veAparati", state: false },
-    { el: "maAparati", state: false },
-    { el: "njega", state: false },
-    { el: "dronovi", state: false },
-    { el: "dom", state: false },
-    { el: "outlet", state: false },
-    { el: "sport", state: false },
-    { el: "psBonovi", state: false },
-  ];
-
-  const titleValueas = [
-    { el: "gaingm", name: "Gaming", adress: "/gaming", state: false },
-    { el: "infom", name: "Informatika", adress: "/informatika", state: false },
+    { el: "gaingm", name: "Gaming", adress: "/gaming" },
+    { el: "infom", name: "Informatika", adress: "/informatika" },
     {
       el: "mob",
       name: "Mobiteli, tablet i satovi",
       adress: "/mob",
-      state: false,
     },
-    { el: "tv", name: "Televizori i audio", adress: "/tv", state: false },
+    { el: "tv", name: "Televizori i audio", adress: "/tv" },
     {
       el: "veAparati",
       name: "Veliki kućanski aparati",
       adress: "/velikiKucanskiAparati",
-      state: false,
     },
     {
       el: "maAparati",
       name: "Mali kućanski aparati",
       adress: "/maliKucanskiAparati",
-      state: false,
     },
-    { el: "njega", name: "Osobna njega", adress: "/njega", state: false },
+    { el: "njega", name: "Osobna njega", adress: "/njega" },
     {
       el: "dronovi",
       name: "Dronovi, kamere i navigacija",
       adress: "/dronoviKamereNavigacija",
-      state: false,
     },
     {
       el: "dom",
       name: " Dom, vrt i alati",
       adress: "/domVrtAlat",
-      state: false,
     },
-    { el: "outlet", name: "Outlet", adress: "/outlet", state: false },
-    { el: "sport", name: "Sport", adress: "/sport", state: false },
-    { el: "psBonovi", name: "PS bonovi", adress: "/psBonovi", state: false },
+    { el: "outlet", name: "Outlet", adress: "/outlet" },
+    { el: "sport", name: "Sport", adress: "/sport" },
+    { el: "psBonovi", name: "PS bonovi", adress: "/psBonovi" },
   ];
 
-  const [gaming, setGaming] = useState(initialvalues);
+  const subValues = [
+    {
+      el: "gaingm",
+      title: "Igrače konzole & VR",
+      link: ["PlayStation 4", "PlayStation 5", "VR", "Nitendo", "Xbox"],
+      state: false,
+    },
+    {
+      el: "gaingm",
+      title: "Igre za sve platforme",
+      link: [
+        "Igre za PS 5",
+        "Igre za PS VR",
+        "Igre za PS Nitendo",
+        "Igre za Xbox",
+      ],
+      state: false,
+    },
+    {
+      el: "infom",
+      title: "Laptop Računala",
+      link: [
+        "Standardni laptopi",
+        "Gaming laptopi",
+        "Ultramobilni laptopi",
+        "Hibridni laptopi",
+      ],
+      state: false,
+    },
+    {
+      el: "infom",
+      title: "Stolna Računala",
+      link: [
+        "Gaming računala",
+        "Stolna računala",
+        "Poslovna računala",
+        "AIO računala",
+      ],
+      state: false,
+    },
+  ];
+  const [gaming, setGaming] = useState(subValues);
 
   const mouseHover = (el) => {
     setGaming(
-      initialvalues.map((intval) => {
+      subValues.map((intval) => {
         if (intval.el === el) {
           return { ...intval, state: true };
         } else {
@@ -73,9 +92,10 @@ export default function SiteContentComponent() {
       })
     );
   };
+
   const mouseOut = (el) => {
     setGaming(
-      initialvalues.map((intval) => {
+      subValues.map((intval) => {
         if (intval.el === el) {
           return { ...intval, state: false };
         } else {
@@ -88,7 +108,7 @@ export default function SiteContentComponent() {
   return (
     <div className="contentComponent">
       <ul>
-        {titleValueas.map((el) => (
+        {initialvalues.map((el) => (
           <li
             key={el.adress}
             onMouseOver={() => {
@@ -106,25 +126,15 @@ export default function SiteContentComponent() {
       {gaming.map(
         (el) =>
           el.state && (
-            <GamingNavComponent
-              key={el.el}
+            <SubNavComponent
+              key={el.title}
               mouseHover={() => mouseHover(el.el)}
               mouseOut={() => mouseOut(el.el)}
+              title={el.title}
+              link={el.link}
             />
           )
       )}
-      {/*gaming[0].state && (
-        <GamingNavComponent
-          mouseHover={() => mouseHover("gaingm")}
-          mouseOut={() => mouseOut("gaingm")}
-        />
-      )*/}
-      {/*gaming[1].state && (
-        <InformatikaNavComponent
-          mouseHover={() => mouseHover("infom")}
-          mouseOut={() => mouseOut("infom")}
-        />
-      )*/}
     </div>
   );
 }
