@@ -5,6 +5,7 @@ import Promotions from "./pages/Promotions";
 import News from "./pages/News";
 import NewsLeter from "./pages/NewsLeter";
 import Brands from "./pages/Brands";
+import GamingComponent from "./components/GamingComponent";
 
 function App() {
   return (
@@ -16,6 +17,15 @@ function App() {
           <Route path="/news" element={<News />}></Route>
           <Route path="/newsLeter" element={<NewsLeter />}></Route>
           <Route path="/brands" element={<Brands />}></Route>
+          <Route path="/cart" element={<Brands />}></Route>
+          <Route
+            path="/gaming"
+            element={
+              <>
+                <GamingComponent />
+              </>
+            }
+          ></Route>
         </Routes>
       </Router>
     </div>

@@ -13,7 +13,7 @@ export default function SubNavComponent({ mouseHover, mouseOut, title, link }) {
           <h4>{title}</h4>
           <ul>
             {link.map((el) => (
-              <li>
+              <li key={el}>
                 <NavLink className="navLink" to={el}>
                   {el}
                 </NavLink>

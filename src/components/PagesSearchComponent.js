@@ -53,7 +53,9 @@ export default function PagesSearchComponent() {
       </form>
 
       <div className="shopingCart">
-        <FontAwesomeIcon icon={faCartShopping} />
+        <NavLink to="/cart">
+          <FontAwesomeIcon icon={faCartShopping} />
+        </NavLink>
         <div className="shopingCartAmount">0</div>
       </div>
       <hr></hr>
