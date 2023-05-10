@@ -18,14 +18,7 @@ function App() {
           <Route path="/newsLeter" element={<NewsLeter />}></Route>
           <Route path="/brands" element={<Brands />}></Route>
           <Route path="/cart" element={<Brands />}></Route>
-          <Route
-            path="/gaming"
-            element={
-              <>
-                <GamingComponent />
-              </>
-            }
-          ></Route>
+          <Route path="/gaming" element={<GamingComponent />}></Route>
         </Routes>
       </Router>
     </div>
