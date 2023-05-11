@@ -141,3 +141,30 @@
   display: flex;
   flex-direction: column;
 }
+.gaming {
+  display: flex;
+  margin-top: 4rem;
+}
+.tile {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.tile .price {
+  display: flex;
+  justify-content: space-evenly;
+}
+.tile button {
+  padding: 0.3rem;
+  background-color: red;
+  color: white;
+  border: 0px;
+  width: 50%;
+  margin: 0 auto;
+}
+.tile p {
+  padding-top: 0.5rem;
+}

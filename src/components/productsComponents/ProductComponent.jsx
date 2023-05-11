@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function ProductComponent({
   url,
@@ -7,20 +7,18 @@ export default function ProductComponent({
   desc,
   priceNew,
   priceOld,
+  doSomething,
 }) {
   return (
-    <div>
-      <img src={url} alt={alt}></img>
-      <p>
-        <span>Besplatna dostava</span>
-        <span> Isporuka odmah</span>
-      </p>
+    <div className="tile">
+      <img src={url} alt={alt} width="80%"></img>
       <h5>{name}</h5>
       <p>{desc}</p>
-      <p>
+      <p className="price">
         <span>{priceNew} €</span>
         <span>{priceOld} kn</span>
       </p>
+      <button onClick={doSomething}>Kupi</button>
     </div>
   );
 }

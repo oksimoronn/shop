@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function PagesSearchComponent() {
+export default function PagesSearchComponent({ count }) {
   return (
     <div className="header">
       <img
@@ -56,7 +56,7 @@ export default function PagesSearchComponent() {
         <NavLink to="/cart">
           <FontAwesomeIcon icon={faCartShopping} />
         </NavLink>
-        <div className="shopingCartAmount">0</div>
+        <div className="shopingCartAmount">{count}</div>
       </div>
       <hr></hr>
     </div>
