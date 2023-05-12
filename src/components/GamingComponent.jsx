@@ -3,6 +3,7 @@ import ProductComponent from "./productsComponents/ProductComponent";
 import Brands from "../pages/Brands";
 import StickyHeaderComponents from "./StickyHeaderComponents";
 import PagesSearchComponent from "./PagesSearchComponent";
+import PostsList from "../feature/PostsList";
 
 export default function GamingComponent({ count }) {
   const products = [
@@ -50,7 +51,8 @@ export default function GamingComponent({ count }) {
         </>
       }
       <div className="gaming">
-        {products.map((el) => (
+        {<PostsList />}
+        {/*products.map((el) => (
           <ProductComponent
             doSomething={() => buy(el.title)}
             key={el.title}
@@ -61,7 +63,7 @@ export default function GamingComponent({ count }) {
             priceNew={el.pricenova}
             priceOld={el.pricestara}
           />
-        ))}
+        ))*/}
       </div>
     </>
   );
